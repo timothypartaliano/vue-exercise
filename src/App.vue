@@ -17,7 +17,23 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <main>
+    <div class="container">
+      <div class="todo-app">
+        <div class="app-title">
+          <h2>To-do app</h2>
+          <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <div class="row">
+          <input type="text" id="input-box" placeholder="add your tasks">
+          <button v-on:click="submitTodo">Add</button>
+        </div>
+        <ul id="list-container">
+
+        </ul>
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
