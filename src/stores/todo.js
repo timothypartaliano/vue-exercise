@@ -12,5 +12,18 @@ export const useTodoStore = defineStore('todo', () => {
             completed: false
         })
     }
-    return { todos, create }
+
+    function changeStatus(id) {
+        for (let i = 0; i < todos.value.length; i++) {
+            if (todos.value[i].id === id) {
+                todos.value[i].completed = !todos.value[i].completed
+            }
+        }
+    }
+
+    function deleteTodo(id) {
+        todos.value = todos.value.filter(el => el.id !== id)
+    }
+
+    return { todos, create, changeStatus, deleteTodo }
 })
