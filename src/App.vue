@@ -33,7 +33,7 @@ const store = useTodoStore()
         <ul id="list-container" v-for="todo in store.todos">
           <li 
             :class="todo.completed ? 'checked' : ''" 
-            :key="todo.id"></li>
+            :key="todo.id">{{ todo.name }}<span>x</span></li>
         </ul>
       </div>
     </div>
