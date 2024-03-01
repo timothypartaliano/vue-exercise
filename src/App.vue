@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useTodoStore } from '@/stores/todo'
+const store = useTodoStore()
 </script>
 
 <template>
@@ -28,8 +30,10 @@ import HelloWorld from './components/HelloWorld.vue'
           <input type="text" id="input-box" placeholder="add your tasks">
           <button v-on:click="submitTodo">Add</button>
         </div>
-        <ul id="list-container">
-
+        <ul id="list-container" v-for="todo in store.todos">
+          <li 
+            :class="todo.completed ? 'checked' : ''" 
+            :key="todo.id"></li>
         </ul>
       </div>
     </div>
