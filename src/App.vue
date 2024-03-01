@@ -1,8 +1,17 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { useTodoStore } from '@/stores/todo'
+
 const store = useTodoStore()
+
+let todoForm = ref("")
+
+function submitTodo() {
+  store.create(todoForm)
+  todoForm.value = ""
+}
 </script>
 
 <template>
@@ -27,7 +36,7 @@ const store = useTodoStore()
           <i class="fa-solid fa-book-bookmark"></i>
         </div>
         <div class="row">
-          <input type="text" id="input-box" placeholder="add your tasks">
+          <input type="text" id="input-box" placeholder="add your tasks" v-model="todoForm">
           <button v-on:click="submitTodo">Add</button>
         </div>
         <ul id="list-container" v-for="todo in store.todos">
