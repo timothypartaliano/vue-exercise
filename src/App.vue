@@ -41,8 +41,9 @@ function submitTodo() {
         </div>
         <ul id="list-container" v-for="todo in store.todos">
           <li 
-            :class="todo.completed ? 'checked' : ''" 
-            :key="todo.id">{{ todo.name }}<span>x</span></li>
+            :class="todo.completed ? 'checked': ''" 
+            :key="todo.id"
+            >{{ todo.name }}<span v-on:click="$event => store.deleteTodo(todo.id)">x</span></li>
         </ul>
       </div>
     </div>
