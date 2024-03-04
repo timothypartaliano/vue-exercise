@@ -43,7 +43,11 @@ function submitTodo() {
           <li 
             :class="todo.completed ? 'checked': ''" 
             :key="todo.id"
-            >{{ todo.name }}<span v-on:click="$event => store.deleteTodo(todo.id)">x</span></li>
+            >
+            {{ todo.name }}
+            <p v-on:click="$event => store.changeStatus(todo.id)"><h6>{{ todo.completed ? 'Mark as Incomplete' : 'Mark as Completed' }}</h6></p>
+            <span v-on:click="$event => store.deleteTodo(todo.id)">x</span>
+          </li>
         </ul>
       </div>
     </div>
