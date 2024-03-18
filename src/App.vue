@@ -52,6 +52,8 @@ function submitTodo() {
       </div>
     </div>
   </main>
+
+  <RouterView />
 </template>
 
 <style scoped>
